@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <title></title>
+  </head>
+  <body>
+    <div id="overlay">
+      <img
+        src="https://res.cloudinary.com/dba6zdavl/image/upload/v1680531028/archives_video_gifs/2023-04-03_141027_Real_Bitcoin.gif"
+        width="420"
+        alt="Overlay GIF"
+      />
+    </div>
+    <video
+      controls
+      disablePictureInPicture
+      controlslist="nodownload noplaybackrate"
+      width="420"
+      height="100%"
+      id="videoPlayer"
+      class="videoPlayer"
+      src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680533643/home_single_video/2023-04-03_145402_Home_Preview.mp4"
+    ></video>
+
+    <script>
+      const video = document.getElementById("videoPlayer");
+      const additionalVideoSelector =
+        document.getElementsByClassName("videoPlayer");
+      const gifOverlay = document.getElementById("overlay");
+
+      function removegif() {
+        document.getElementById("overlay").style.display = "none";
+      }
+
+      function addGif() {
+        document.getElementById("overlay").style.display = "block";
+      }
+
+      video.controls = false;
+      let userInteracted = false;
+      video.addEventListener("mouseenter", () => {
+        if (video.pause) {
+          video.controls = true;
+          addGif();
+        }
+      });
+
+      video.addEventListener("mouseleave", () => {
+        video.controls = false;
+        removegif();
+      });
+
+      gifOverlay.addEventListener("click", () => {
+        removegif();
+
+        if (video.pause) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener("ended", () => {
+        console.log("Video has ended");
+        video.currentTime = 0; // Reset the video to the beginning
+      });
+
+      console.log(additionalVideoSelector[0]);
+      console.log(gifOverlay.style.display);
+    </script>
+  </body>
+</html>
