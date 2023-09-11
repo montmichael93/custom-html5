@@ -8,6 +8,7 @@
     <title>Testing</title>
 
     <style>
+      /*CSS CODE COPY AND PASTE ONE TIME ONLY!!*/
       .media-container {
         display: inline-grid;
         grid-template-columns: 1fr;
@@ -44,8 +45,9 @@
     </style>
   </head>
   <body>
-    <div class="media-container" id="media-container">
-      <div id="overlay" class="gif-overlay">
+    <!---VIDEO GIF CONTAINER 1!!!!!-->
+    <div class="media-container" id="media-container-1">
+      <div id="overlay-1" class="gif-overlay">
         <img
           src="https://res.cloudinary.com/dba6zdavl/image/upload/v1680531028/archives_video_gifs/2023-04-03_141027_Real_Bitcoin.gif"
           width="420"
@@ -57,82 +59,307 @@
         disablePictureInPicture
         controlslist="nodownload noplaybackrate"
         width="420"
-        id="videoPlayer"
+        id="videoPlayer-1"
+        class="videoPlayer"
+        src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
+      ></video>
+    </div>
+
+    <div class="media-container" id="media-container-2">
+      <!---VIDEO GIF CONTAINER 2!!!!!-->
+      <div id="overlay-2" class="gif-overlay">
+        <img
+          src="https://res.cloudinary.com/dba6zdavl/image/upload/v1680531028/archives_video_gifs/2023-04-03_141027_Real_Bitcoin.gif"
+          width="420"
+          alt="Overlay GIF"
+        />
+      </div>
+      <video
+        controls
+        disablePictureInPicture
+        controlslist="nodownload noplaybackrate"
+        width="420"
+        id="videoPlayer-2"
+        class="videoPlayer"
+        src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
+      ></video>
+    </div>
+
+    <div class="media-container" id="media-container-3">
+      <!---VIDEO GIF CONTAINER 3!!!!!-->
+      <div id="overlay-3" class="gif-overlay">
+        <img
+          src="https://res.cloudinary.com/dba6zdavl/image/upload/v1680531028/archives_video_gifs/2023-04-03_141027_Real_Bitcoin.gif"
+          width="420"
+          alt="Overlay GIF"
+        />
+      </div>
+      <video
+        controls
+        disablePictureInPicture
+        controlslist="nodownload noplaybackrate"
+        width="420"
+        id="videoPlayer-3"
+        class="videoPlayer"
+        src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
+      ></video>
+    </div>
+
+    <div class="media-container" id="media-container-4">
+      <!---VIDEO GIF CONTAINER 4!!!!!-->
+      <div id="overlay-4" class="gif-overlay">
+        <img
+          src="https://res.cloudinary.com/dba6zdavl/image/upload/v1680531028/archives_video_gifs/2023-04-03_141027_Real_Bitcoin.gif"
+          width="420"
+          alt="Overlay GIF"
+        />
+      </div>
+      <video
+        controls
+        disablePictureInPicture
+        controlslist="nodownload noplaybackrate"
+        width="420"
+        id="videoPlayer-4"
         class="videoPlayer"
         src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
       ></video>
     </div>
 
     <script>
-      console.log("Viewport width: " + window.innerWidth);
-      const mediaContainer = document.getElementById("media-container");
+      ////video one
+      const mediaContainer1 = document.getElementById("media-container-1");
 
-      const video = document.getElementById("videoPlayer");
-      const additionalVideoSelector =
-        document.getElementsByClassName("videoPlayer");
-      const gifOverlay = document.getElementById("overlay");
+      const video1 = document.getElementById("videoPlayer-1");
 
-      function removegif() {
-        gifOverlay.style.zIndex = 0;
-        video.style.zIndex = 1;
-      }
+      const gifOverlay1 = document.getElementById("overlay-1");
 
-      function addGif() {
-        gifOverlay.style.zIndex = 1;
-        video.style.zIndex = 0;
-      }
-
-      function addGifMobile() {
-        gifOverlay.style.zIndex = 0;
-        video.style.zIndex = 1;
-      }
-
-      function removegifMobile() {
-        gifOverlay.style.zIndex = 0;
-        video.style.zIndex = 1;
-      }
-
-      video.controls = false;
+      video1.controls = false;
 
       if (window.innerWidth < 768) {
         // Code to execute for mobile users
-        gifOverlay.style.display = "none";
+        gifOverlay1.style.display = "none";
 
-        mediaContainer.addEventListener("touchstart", function (event) {
+        mediaContainer1.addEventListener("touchstart", function (event) {
           // Code to execute when touch starts (equivalent to mouseenter)
-          video.controls = true;
+          video1.controls = true;
         });
 
-        mediaContainer.addEventListener("touchend", function (event) {
+        mediaContainer1.addEventListener("touchend", function (event) {
           // Code to execute when touch starts (equivalent to mouseenter)
-          if (video.paused) {
-            video.play();
+          if (video1.paused) {
+            video1.play();
           } else {
-            video.pause();
+            video1.pause();
           }
         });
       } else {
-        mediaContainer.addEventListener("mouseenter", () => {
-          if (video.currentTime === 0) {
-            addGif();
+        mediaContainer1.addEventListener("mouseenter", () => {
+          if (video1.currentTime === 0) {
+            //addGif();
+            gifOverlay1.style.zIndex = 1;
+            video1.style.zIndex = 0;
           } else {
-            video.controls = true;
+            video1.controls = true;
           }
         });
 
-        mediaContainer.addEventListener("mouseleave", () => {
-          video.controls = false;
-          if (video.currentTime === 0) {
-            removegif();
+        mediaContainer1.addEventListener("mouseleave", () => {
+          video1.controls = false;
+          if (video1.currentTime === 0) {
+            //removegif();
+            gifOverlay1.style.zIndex = 0;
+            video1.style.zIndex = 1;
           }
         });
 
-        mediaContainer.addEventListener("click", () => {
-          removegif();
-          if (video.paused) {
-            video.play();
+        mediaContainer1.addEventListener("click", () => {
+          //removegif();
+          gifOverlay1.style.zIndex = 0;
+          video1.style.zIndex = 1;
+          if (video1.paused) {
+            video1.play();
           } else {
-            video.pause();
+            video1.pause();
+          }
+        });
+      }
+    </script>
+
+    <script>
+      ////video two
+      const mediaContainer2 = document.getElementById("media-container-2");
+
+      const video2 = document.getElementById("videoPlayer-2");
+
+      const gifOverlay2 = document.getElementById("overlay-2");
+
+      video2.controls = false;
+
+      if (window.innerWidth < 768) {
+        // Code to execute for mobile users
+        gifOverlay2.style.display = "none";
+
+        mediaContainer2.addEventListener("touchstart", function (event) {
+          // Code to execute when touch starts (equivalent to mouseenter)
+          video2.controls = true;
+        });
+
+        mediaContainer2.addEventListener("touchend", function (event) {
+          // Code to execute when touch starts (equivalent to mouseenter)
+          if (video2.paused) {
+            video2.play();
+          } else {
+            video2.pause();
+          }
+        });
+      } else {
+        mediaContainer2.addEventListener("mouseenter", () => {
+          if (video2.currentTime === 0) {
+            //addGif();
+            gifOverlay2.style.zIndex = 1;
+            video2.style.zIndex = 0;
+          } else {
+            video2.controls = true;
+          }
+        });
+
+        mediaContainer2.addEventListener("mouseleave", () => {
+          video2.controls = false;
+          if (video2.currentTime === 0) {
+            //removegif();
+            gifOverlay2.style.zIndex = 0;
+            video2.style.zIndex = 1;
+          }
+        });
+
+        mediaContainer2.addEventListener("click", () => {
+          //removegif();
+          gifOverlay2.style.zIndex = 0;
+          video2.style.zIndex = 1;
+          if (video2.paused) {
+            video2.play();
+          } else {
+            video2.pause();
+          }
+        });
+      }
+    </script>
+
+    <script>
+      ////video three
+      const mediaContainer3 = document.getElementById("media-container-3");
+
+      const video3 = document.getElementById("videoPlayer-3");
+
+      const gifOverlay3 = document.getElementById("overlay-3");
+
+      video3.controls = false;
+
+      if (window.innerWidth < 768) {
+        // Code to execute for mobile users
+        gifOverlay3.style.display = "none";
+
+        mediaContainer3.addEventListener("touchstart", function (event) {
+          // Code to execute when touch starts (equivalent to mouseenter)
+          video3.controls = true;
+        });
+
+        mediaContainer2.addEventListener("touchend", function (event) {
+          // Code to execute when touch starts (equivalent to mouseenter)
+          if (video3.paused) {
+            video3.play();
+          } else {
+            video3.pause();
+          }
+        });
+      } else {
+        mediaContainer3.addEventListener("mouseenter", () => {
+          if (video3.currentTime === 0) {
+            //addGif();
+            gifOverlay3.style.zIndex = 1;
+            video3.style.zIndex = 0;
+          } else {
+            video3.controls = true;
+          }
+        });
+
+        mediaContainer3.addEventListener("mouseleave", () => {
+          video3.controls = false;
+          if (video3.currentTime === 0) {
+            //removegif();
+            gifOverlay3.style.zIndex = 0;
+            video3.style.zIndex = 1;
+          }
+        });
+
+        mediaContainer3.addEventListener("click", () => {
+          //removegif();
+          gifOverlay3.style.zIndex = 0;
+          video3.style.zIndex = 1;
+          if (video3.paused) {
+            video3.play();
+          } else {
+            video3.pause();
+          }
+        });
+      }
+    </script>
+
+    <script>
+      ////video FOUR
+      const mediaContainer4 = document.getElementById("media-container-4");
+
+      const video4 = document.getElementById("videoPlayer-4");
+
+      const gifOverlay4 = document.getElementById("overlay-4");
+
+      video4.controls = false;
+
+      if (window.innerWidth < 768) {
+        // Code to execute for mobile users
+        gifOverlay4.style.display = "none";
+
+        mediaContainer4.addEventListener("touchstart", function (event) {
+          // Code to execute when touch starts (equivalent to mouseenter)
+          video4.controls = true;
+        });
+
+        mediaContainer4.addEventListener("touchend", function (event) {
+          // Code to execute when touch starts (equivalent to mouseenter)
+          if (video4.paused) {
+            video4.play();
+          } else {
+            video4.pause();
+          }
+        });
+      } else {
+        mediaContainer4.addEventListener("mouseenter", () => {
+          if (video4.currentTime === 0) {
+            //addGif();
+            gifOverlay4.style.zIndex = 1;
+            video4.style.zIndex = 0;
+          } else {
+            video4.controls = true;
+          }
+        });
+
+        mediaContainer4.addEventListener("mouseleave", () => {
+          video4.controls = false;
+          if (video4.currentTime === 0) {
+            //removegif();
+            gifOverlay4.style.zIndex = 0;
+            video4.style.zIndex = 1;
+          }
+        });
+
+        mediaContainer4.addEventListener("click", () => {
+          //removegif();
+          gifOverlay4.style.zIndex = 0;
+          video4.style.zIndex = 1;
+          if (video4.paused) {
+            video4.play();
+          } else {
+            video4.pause();
           }
         });
       }
