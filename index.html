@@ -9,12 +9,24 @@
 
     <style>
       /*CSS CODE COPY AND PASTE ONE TIME ONLY!!*/
-      .flex-container-section {
+      .giant-flex {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 8.5rem;
+        gap: 6rem;
+        row-gap: 0rem;
+      }
+      .flex-container-section-1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 2.5rem;
+      }
+
+      .flex-container-section-2 {
+        display: flex;
+        justify-content: flex-start;
       }
 
       .media-container {
@@ -41,6 +53,25 @@
         grid-area: 1 / 1 / 2 / 2;
       }
 
+      .flex-video {
+        display: flex;
+        flex-direction: column;
+       
+      }
+
+      .vid-title {
+        margin-top: 1rem;
+        font-size: larger;
+      }
+
+      .video-description {
+        display: flex;
+        margin-top: -1.5rem;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        font-size: small;
+      }
+
       @media screen and (max-width: 768px) {
         .videoPlayer {
           z-index: 0;
@@ -49,12 +80,23 @@
         .gif-overlay {
           z-index: 1;
         }
+
+
+        .giant-flex {
+          justify-content: center;
+        }
+
+
+
+
       }
     </style>
   </head>
-  <body>
-    <!---VIDEO GIF CONTAINER 1!!!!!-->
-    <section class="flex-container-section">
+  <section class="giant-flex"
+
+    
+  <div class="flex-container-section-1">
+    <div class="flex-video">
       <div class="media-container" id="media-container-1">
         <div id="overlay-1" class="gif-overlay">
           <img
@@ -73,7 +115,17 @@
           src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
         ></video>
       </div>
+      <h4 class="vid-title"><strong>Real Bitcoin</strong></h4>
+      <div class="video-description">
+      <p>Client: Swan Bitcoin </p>
+      <p> - </p>
+      <p>Agency: Brebow </p>
+      <p> - </p>
+      <p> Industry: Fintech </p>
+      </div>
+    </div>
 
+    <div class="flex-video">
       <div class="media-container" id="media-container-2">
         <!---VIDEO GIF CONTAINER 2!!!!!-->
         <div id="overlay-2" class="gif-overlay">
@@ -93,7 +145,17 @@
           src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
         ></video>
       </div>
+      <h4 class="vid-title"><strong>Real Bitcoin</strong></h4>
+      <div class="video-description">
+      <p>Client: Swan Bitcoin </p>
+      <p> - </p>
+      <p>Agency: Brebow </p>
+      <p> - </p>
+      <p> Industry: Fintech </p>
+      </div>
+    </div>
 
+    <div class="flex-video">
       <div class="media-container" id="media-container-3">
         <!---VIDEO GIF CONTAINER 3!!!!!-->
         <div id="overlay-3" class="gif-overlay">
@@ -113,7 +175,22 @@
           src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
         ></video>
       </div>
+      <h4 class="vid-title"><strong>Real Bitcoin</strong></h4>
+      <div class="video-description">
+      <p>Client: Swan Bitcoin </p>
+      <p> - </p>
+      <p>Agency: Brebow </p>
+      <p> - </p>
+      <p> Industry: Fintech </p>
+      </div>
+      </div>
+    </div>
+  </div>
 
+  <!--Second Row of Videos-->
+
+  <div class="flex-container-section-2">
+    <div class="flex-video">
       <div class="media-container" id="media-container-4">
         <!---VIDEO GIF CONTAINER 4!!!!!-->
         <div id="overlay-4" class="gif-overlay">
@@ -133,7 +210,18 @@
           src="https://res.cloudinary.com/dba6zdavl/video/upload/v1680531039/archives_video_gifs/2023-04-03_141030_Real_Bitcoin.mp4"
         ></video>
       </div>
-    </section>
+      <h4 class="vid-title"><strong>Real Bitcoin</strong></h4>
+      <div class="video-description">
+      <p>Client: Swan Bitcoin </p>
+      <p> - </p>
+      <p>Agency: Brebow </p>
+      <p> - </p>
+      <p> Industry: Fintech </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <script>
       ////video one
